@@ -1,15 +1,11 @@
 import { useEffect, useState } from 'react'
 import api from './services/api'
-
-interface VibePots{
-  id: number;
-  title: string;
-  content: string;
-  author: string;
-}
+import type { VibePost }  from './types/vibe'
+import { VibeCard } from './components/VibeCard';
+import { Header } from './components/Header';
 
 function App() {
-const [vibes, setVibes] = useState<VibePots[]>([])
+const [vibes, setVibes] = useState<VibePost[]>([])
 
 useEffect(() => {
 
@@ -22,24 +18,16 @@ useEffect(() => {
 }, [])
 
 
-  return (
-   <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h1>NexusLoves - Feed de Vibes</h1>
-      <hr />
-      
-      {vibes.length === 0 && <p>Carregando ou nenhuma vibe encontrada...</p>}
-
-      <div style={{ display: 'grid', gap: '20px' }}>
-        {vibes.map(vibe => (
-          <div key={vibe.id} style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '8px' }}>
-            <h2>{vibe.title}</h2>
-            <p>{vibe.content}</p>
-            <small>Postado por: <strong>{vibe.author}</strong></small>
-          </div>
-      ))}
-    </div>
-    </div>
-  )
+   return (
+  <div className="min-h-screen bg-slate-50 p-40 md:p-40 font-sans">
+    < Header />
+    
+  <main className="max-w-2xl mx-auto">
+    {vibes.map(vibe => 
+      <VibeCard key={vibe.id} vibe={vibe} />
+    )}
+  </main>
+</div>
+);
 }
-
-export default App
+export default App;
