@@ -33,7 +33,7 @@ useEffect(() => {
         
   <main className="max-w-2xl mx-auto">
     {vibes.map(vibe => 
-      <VibeCard key={vibe.id} vibe={vibe} />
+      <VibeCard key={vibe.id} vibe={vibe} onUpdateSuccess={fetchVibes} />
     )}
   </main>
 </div>
