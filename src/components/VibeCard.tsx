@@ -96,7 +96,7 @@ const [isEditing, setIsEditing] = useState(false);
           </div>
 
       {/* Seção de Comentários */}
-      <section className="bg-gray-50 p-3 border-t border-gray-100">
+      <section className="bg-gray-50/80 rounded-b-2xl p-3 mb-3 border-t border-gray-100">
         <h4 className="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-3">Comentários</h4>
         <div className="space-y-2">
           {vibe.comments?.map(comment => (
