@@ -13,6 +13,7 @@ export interface VibePost {
   title: string;
   content: string;
   author: string;
+  createdAt: string;
   comments: Comment[];
   reactions: Reaction[];
 }
