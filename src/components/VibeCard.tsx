@@ -82,8 +82,12 @@ const [isEditing, setIsEditing] = useState(false);
   <p className="text-gray-600 leading-relaxed border-l-2 border-blue-100 pl-3 ">{vibe.content}</p>
 )}
 </div>
-       <div className="mt-2 text-sm text-gray-500 mb-1">
+       <div className="flex flex-row gap-1 mt-2 text-xs text-gray-500 mb-1 items-baseline">
             Postado por <span className="font-semibold text-blue-500">{vibe.author}</span>
+
+            Última interação: <span className="text-[10px] text-gray-300 italic">{new Date(vibe.createdAt)
+            .toLocaleString('pt-BR')}
+            </span>
           </div>
           
           {/* Área de Reações */}
